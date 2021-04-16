@@ -17,6 +17,7 @@ export default {
 	data: () => {
 		return {
 			title: "",
+			author: "",
 			description: ""
 		};
 	},
