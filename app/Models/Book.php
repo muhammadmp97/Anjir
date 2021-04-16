@@ -20,7 +20,7 @@ class Book extends Model
         'complete_version_url' => '#',
     ];
 
-    public static function get($property)
+    public static function getProperty($property)
     {
         $properties = Cache::rememberForever('anjir_book_info', function () {
             return static::all();
@@ -31,12 +31,12 @@ class Book extends Model
         return $dbValue ?: static::$defaults[$property];
     }
 
-    public static function getAll()
+    public static function getProperties()
     {
         $result = [];
 
         foreach (array_keys(static::$defaults) as $property) {
-            $result[$property] = static::get($property);
+            $result[$property] = static::getProperty($property);
         }
 
         return $result;

@@ -10,7 +10,7 @@ class BookController extends Controller
     {
         return response()->json([
             'status' => 'ok',
-            'data' => Book::getAll()
+            'data' => Book::getProperties()
         ]);
     }
 }
