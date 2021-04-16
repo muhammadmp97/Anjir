@@ -1,0 +1,120 @@
+@import 'bootstrap.css';
+
+body {
+    direction: rtl !important;
+    background: #efefef;
+    color: #333;
+    margin-bottom: 0 !important;
+}
+
+@font-face {
+    font-family: "FVazir";
+    src: url("./font/Vazir.eot");
+    src: url("./font/Vazir.eot?#iefix") format("embedded-opentype"), url("./font/Vazir.woff2") format("woff2"),
+        url("./font/Vazir.woff") format("woff"), url("./font/Vazir.ttf") format("truetype");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "FVazir";
+    src: url("./font/Vazir-Bold.eot");
+    src: url("./font/Vazir-Bold.eot?#iefix") format("embedded-opentype"), url("./font/Vazir-Bold.woff2") format("woff2"),
+        url("./font/Vazir-Bold.woff") format("woff"), url("./font/Vazir-Bold.ttf") format("truetype");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "FVazir";
+    src: url("./font/Vazir-Thin.eot");
+    src: url("./font/Vazir-Thin.eot?#iefix") format("embedded-opentype"), url("./font/Vazir-Thin.woff2") format("woff2"),
+        url("./font/Vazir-Thin.woff") format("woff"), url("./font/Vazir-Thin.ttf") format("truetype");
+    font-weight: 100;
+}
+@font-face {
+    font-family: "FVazir";
+    src: url("./font/Vazir-Light.eot");
+    src: url("./font/Vazir-Light.eot?#iefix") format("embedded-opentype"),
+        url("./font/Vazir-Light.woff2") format("woff2"), url("./font/Vazir-Light.woff") format("woff"),
+        url("./font/Vazir-Light.ttf") format("truetype");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "FVazir";
+    src: url("./font/Vazir-Black.eot");
+    src: url("./font/Vazir-Black.eot?#iefix") format("embedded-opentype"),
+        url("./font/Vazir-Black.woff2") format("woff2"), url("./font/Vazir-Black.woff") format("woff"),
+        url("./font/Vazir-Black.ttf") format("truetype");
+    font-weight: 900;
+}
+
+* {
+    outline: none !important;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none !important;
+}
+.vazir {
+    font-family: "FVazir";
+}
+.bold {
+    font-weight: bold;
+}
+.bolder {
+    font-weight: 900;
+}
+.light {
+    font-weight: 300;
+}
+.thin {
+    font-weight: 100;
+}
+.fs-15 {
+    font-size: 15px !important;
+}
+.fs-16 {
+    font-size: 16px !important;
+}
+.fs-17 {
+    font-size: 17px !important;
+}
+.fs-18 {
+    font-size: 18px !important;
+}
+.fs-19 {
+    font-size: 19px !important;
+}
+.p-10 {padding: 10px !important;}
+.pt-0 {padding-top: 0 !important;}
+.pt-10 {padding-top: 10px !important;}
+.pt-20 {padding-top: 10px !important;}
+.pt-30 {padding-top: 10px !important;}
+.pb-0 {padding-bottom: 0 !important;}
+.pb-10 {padding-bottom: 10px !important;}
+.pb-20 {padding-bottom: 20px !important;}
+.pb-30 {padding-bottom: 30px !important;}
+.pr-10 {padding-right: 10px !important}
+.pr-20 {padding-right: 20px !important}
+.pl-10 {padding-left: 10px !important}
+.pl-20 {padding-left: 20px !important}
+.mt-0 {margin-top: 0 !important;}
+.mb-0 {margin-bottom: 0 !important;}
+.mt-5 {margin-top: 5px !important;}
+.mt-10 {margin-top: 10px !important;}
+.mt-15 {margin-top: 15px !important;}
+.mt-20 {margin-top: 20px !important;}
+.mt-30 {margin-top: 30px !important;}
+.mt-40 {margin-top: 40px !important;}
+.mt-50 {margin-top: 50px !important;}
+.mb-5 {margin-bottom: 5px !important;}
+.mb-10 {margin-bottom: 10px !important;}
+.mb-15 {margin-bottom: 15px !important;}
+.mb-20 {margin-bottom: 20px !important;}
+.mb-30 {margin-bottom: 30px !important;}
+.mb-40 {margin-bottom: 40px !important;}
+.mb-50 {margin-bottom: 50px !important;}
+.mr-10 { margin-right: 10px !important; }
+.mr-20 { margin-right: 20px !important; }
+.ml-10 { margin-left: 10px !important; }
+.ml-20 { margin-left: 20px !important; }
