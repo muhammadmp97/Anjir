@@ -16,7 +16,7 @@ class Book extends Model
         'cover_photo' => '/images/book_cover.jpg',
         'version' => 'ویرایش اول',
         'price' => '45000',
-        'free_version_url' => '#',
+        'free_version_url' => null,
         'complete_version_url' => '#',
     ];
 

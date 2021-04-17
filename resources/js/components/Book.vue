@@ -13,7 +13,7 @@
 
 			<div class="col-lg-12">
 				<button class="b-button b-button-red fs-17">{{ price }} تومان</button>
-				<button class="b-button b-button-gray fs-17">نسخه‌ی نمونه</button>
+				<button v-if="free_version_url" @click="downloadFreeVersion" class="b-button b-button-gray fs-17">نسخه‌ی نمونه</button>
 			</div>
 		</div>
 	</div>
@@ -28,7 +28,8 @@ export default {
 			description: "",
 			cover_photo: "",
 			price: null,
-			complete_version_url: ""
+			complete_version_url: "",
+			free_version_url: null
 		};
 	},
 
@@ -42,7 +43,12 @@ export default {
 				this.cover_photo = data.cover_photo;
 				this.price = data.price;
 				this.complete_version_url = data.complete_version_url;
+				this.free_version_url = data.free_version_url;
 			});
+		},
+
+		downloadFreeVersion() {
+			window.open(this.free_version_url);
 		}
 	},
 
