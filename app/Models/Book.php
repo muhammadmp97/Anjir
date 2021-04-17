@@ -13,7 +13,7 @@ class Book extends Model
         'title' => 'سلام دنیا!',
         'author' => 'وب‌پژوه',
         'description' => 'توضیحی برای این کتاب ثبت نشده است. لطفا در بخش مدیریت نسبت به ثبت مشخصات کتاب و تکمیل تنظیمات وب‌سایت اقدام فرمایید.',
-        'cover_photo' => '#',
+        'cover_photo' => '/images/book_cover.jpg',
         'version' => 'ویرایش اول',
         'price' => '45000',
         'free_version_url' => '#',
