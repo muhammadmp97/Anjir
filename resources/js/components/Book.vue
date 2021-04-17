@@ -12,7 +12,7 @@
 			</div>
 
 			<div class="col-lg-12">
-				<button class="b-button b-button-red fs-17">{{ price }} تومان</button>
+				<button class="b-button b-button-red fs-17">{{ getPrice }}</button>
 				<button v-if="free_version_url" @click="downloadFreeVersion" class="b-button b-button-gray fs-17">نسخه‌ی نمونه</button>
 			</div>
 		</div>
@@ -49,6 +49,16 @@ export default {
 
 		downloadFreeVersion() {
 			window.open(this.free_version_url);
+		}
+	},
+
+	computed: {
+		getPrice() {
+			if (this.price == 0) {
+				return 'دریافت رایگان';
+			}
+
+			return `${this.price} تومان`;
 		}
 	},
 
