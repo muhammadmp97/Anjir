@@ -2,18 +2,24 @@
 	<div class="container">
 		<div class="book-box vazir">
 			<div class="col-lg-4 text-align-center">
-				<img :src="cover_photo" class="cover-photo" />
+				<vue-skeleton v-if="! loaded" width="75%" height="340px" style="margin: 0 auto;"></vue-skeleton>
+				<img v-show="loaded" :src="cover_photo" class="cover-photo" />
 			</div>
 
 			<div class="col-lg-8">
-				<h2 class="mb-0 mt-0 bolder">{{ title }}</h2>
-				<div class="bold fs-16">نویسنده: {{ author }}</div>
-				<p>{{ description }}</p>
+				<vue-skeleton v-if="! loaded" width="40%" height="40px"></vue-skeleton>
+				<h2 v-show="loaded" class="mb-0 mt-0 bolder">{{ title }}</h2>
+				<div v-show="loaded" class="bold fs-16">نویسنده: {{ author }}</div>
+				<vue-skeleton v-if="! loaded" width="100%" height="30px"></vue-skeleton>
+				<p v-show="loaded">{{ description }}</p>
 			</div>
 
 			<div class="col-lg-12">
-				<button class="b-button b-button-red fs-17">{{ getPrice }}</button>
-				<button v-if="free_version_url" @click="downloadFreeVersion" class="b-button b-button-gray fs-17">نسخه‌ی نمونه</button>
+				<vue-skeleton v-if="! loaded" width="130px" height="45px" style="float:left;margin-right:15px;"></vue-skeleton>
+				<vue-skeleton v-if="! loaded" width="130px" height="45px" style="float:left;"></vue-skeleton>
+
+				<button v-if="loaded" class="b-button b-button-red fs-17">{{ getPrice }}</button>
+				<button v-if="free_version_url && loaded" @click="downloadFreeVersion" class="b-button b-button-gray fs-17">نسخه‌ی نمونه</button>
 			</div>
 		</div>
 	</div>
@@ -23,6 +29,7 @@
 export default {
 	data: () => {
 		return {
+			loaded: false,
 			title: "",
 			author: "",
 			description: "",
@@ -44,6 +51,8 @@ export default {
 				this.price = data.price
 				this.complete_version_url = data.complete_version_url
 				this.free_version_url = data.free_version_url
+
+				this.loaded = true
 			})
 		},
 
@@ -76,6 +85,7 @@ export default {
 	border-radius: 7px;
 	box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
 	padding: 25px 0;
+	margin-top: 30px;
 
 	h2 {
 		font-size: 28px;
