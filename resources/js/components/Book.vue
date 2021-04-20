@@ -35,7 +35,6 @@ export default {
 			description: "",
 			cover_photo: "",
 			price: null,
-			complete_version_url: "",
 			free_version_url: null
 		}
 	},
@@ -49,7 +48,6 @@ export default {
 				this.description = data.description
 				this.cover_photo = data.cover_photo
 				this.price = data.price
-				this.complete_version_url = data.complete_version_url
 				this.free_version_url = data.free_version_url
 
 				this.loaded = true
