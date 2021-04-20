@@ -17,7 +17,6 @@ class Book extends Model
         'version' => 'ویرایش اول',
         'price' => 0,
         'free_version_url' => null,
-        'complete_version_url' => null,
     ];
 
     public static function getProperty($property)
