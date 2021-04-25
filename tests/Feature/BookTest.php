@@ -7,7 +7,7 @@ use Tests\TestCase;
 
 class BookTest extends TestCase
 {
-    public function test_we_can_get_the_book_data()
+    public function test_user_can_get_the_book_data()
     {
         $this->get('/api/book')
             ->assertJsonStructure([
