@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Cache;
+use App\Traits\HasProperties;
 
 class Book extends Model
 {
+    use HasProperties;
+
     protected $table = 'book_properties';
 
     public static $defaults = [
@@ -18,26 +20,4 @@ class Book extends Model
         'price' => 0,
         'free_version_url' => null,
     ];
-
-    public static function getProperty($property)
-    {
-        $properties = Cache::rememberForever('anjir_book_info', function () {
-            return static::all();
-        });
-
-        $dbValue = optional($properties->firstWhere('property', $property))->value;
-
-        return $dbValue ?: static::$defaults[$property];
-    }
-
-    public static function getProperties()
-    {
-        $result = [];
-
-        foreach (array_keys(static::$defaults) as $property) {
-            $result[$property] = static::getProperty($property);
-        }
-
-        return $result;
-    }
 }
