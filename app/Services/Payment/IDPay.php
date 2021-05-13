@@ -27,8 +27,6 @@ class IDPay implements PaymentInterface
         $response = Http::withHeaders($this->headers)
             ->post($this->endpoint . 'payment', $body);
 
-            return $response;
-
         return ($response->status() === 201) ? $response->json() : false;
     }
 
