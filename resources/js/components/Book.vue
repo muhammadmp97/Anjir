@@ -108,7 +108,7 @@ export default {
 	width: 100%;
 	background: #fff;
 	border-radius: 7px;
-	box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+	box-shadow: 0 8px 25px rgb(0, 0, 0, .08);
 	padding: 25px 0;
 	margin-top: 30px;
 
