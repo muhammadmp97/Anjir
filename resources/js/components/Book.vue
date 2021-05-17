@@ -42,7 +42,7 @@
 				</center>
 
 				<input v-model="user_email" type="text" class="email-input" placeholder="لطفا آدرس ایمیل خود را وارد کنید">
-				<button @click="submitEmail" class="b-button b-button-red fs-17">تأیید</button>
+				<button @click="submitEmail" :disabled="this.user_email.trim() == ''" class="b-button b-button-red fs-17">تأیید</button>
 			</div>
 		</modal>
 	</div>
@@ -148,6 +148,11 @@ export default {
 	padding: 12px 19px 9px;
 	cursor: pointer;
 	transition: 0.5s;
+}
+
+.b-button:disabled {
+	opacity: .6;
+	pointer-events: none;
 }
 
 .b-button-red {
