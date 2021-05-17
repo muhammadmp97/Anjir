@@ -41,8 +41,8 @@
 					<img src="/images/email-icon.png">
 				</center>
 
-				<input type="text" class="email-input" placeholder="لطفا آدرس ایمیل خود را وارد کنید">
-				<button class="b-button b-button-red fs-17">تأیید</button>
+				<input v-model="user_email" type="text" class="email-input" placeholder="لطفا آدرس ایمیل خود را وارد کنید">
+				<button @click="submitEmail" class="b-button b-button-red fs-17">تأیید</button>
 			</div>
 		</modal>
 	</div>
@@ -58,7 +58,9 @@ export default {
 			description: "",
 			cover_photo: "",
 			price: null,
-			free_version_url: null
+			free_version_url: null,
+
+			user_email: ''
 		};
 	},
 
@@ -83,6 +85,20 @@ export default {
 
 		showBuyModal() {
 			this.$modal.show('buy-modal')
+		},
+
+		submitEmail() {
+			axios.post('/api/payment/link', {email: this.user_email})
+				.then(response => {
+					if (response.data.status == 'ok') {
+						window.location.href = response.data.data.link
+					} else {
+						// Do something
+					}
+				})
+				.catch(error => {
+					// Do something
+				})
 		}
 	},
 

@@ -19,6 +19,10 @@ class PaymentController extends Controller
 
     public function createPaymentLink(Request $request)
     {
+        $request->validate([
+            'email' => ['required', 'email']
+        ]);
+
         $orderId = Str::random(20) . time();
         $amount = Book::getProperty('price');
 
