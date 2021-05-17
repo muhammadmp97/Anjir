@@ -67,20 +67,20 @@ export default {
 	methods: {
 		loadData() {
 			axios.get("/api/book").then(response => {
-				let data = response.data.data;
-				this.title = data.title;
-				this.author = data.author;
-				this.description = data.description;
-				this.cover_photo = data.cover_photo;
-				this.price = data.price;
-				this.free_version_url = data.free_version_url;
+				let data = response.data.data
+				this.title = data.title
+				this.author = data.author
+				this.description = data.description
+				this.cover_photo = data.cover_photo
+				this.price = data.price
+				this.free_version_url = data.free_version_url
 
-				this.loaded = true;
+				this.loaded = true
 			});
 		},
 
 		downloadFreeVersion() {
-			window.open(this.free_version_url);
+			window.open(this.free_version_url)
 		},
 
 		showBuyModal() {
@@ -105,15 +105,15 @@ export default {
 	computed: {
 		getPrice() {
 			if (this.price == 0) {
-				return "دریافت رایگان";
+				return "دریافت رایگان"
 			}
 
-			return `${this.price} تومان`;
+			return `${this.price} تومان`
 		}
 	},
 
 	mounted() {
-		this.loadData();
+		this.loadData()
 	}
 };
 </script>
