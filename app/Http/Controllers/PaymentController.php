@@ -21,6 +21,8 @@ class PaymentController extends Controller
     {
         $request->validate([
             'email' => ['required', 'email']
+        ], [
+            'email' => 'ایمیل وارد شده صحیح نیست!'
         ]);
 
         $orderId = Str::random(20) . time();

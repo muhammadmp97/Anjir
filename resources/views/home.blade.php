@@ -9,6 +9,7 @@
     <body>
         <div id="app">
             <book></book>
+            <message-box message="" type=""></message-box>
         </div>
     </body>
 

@@ -97,7 +97,8 @@ export default {
 					}
 				})
 				.catch(error => {
-					// Do something
+					let messageText = Object.values(error.response.data.errors)[0][0]
+					messageBox(messageText, 'error')
 				})
 		}
 	},
@@ -208,6 +209,13 @@ export default {
 		font-size: 16px !important;
 		padding: 10px 0 7px;
 		margin-left: 0 !important;
+	}
+
+	.error {
+		color: #e04038;
+		font-family: 'FVazir';
+		font-size: 15px;
+		margin: 18px 0 5px;
 	}
 }
 </style>
