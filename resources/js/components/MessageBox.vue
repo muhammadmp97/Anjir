@@ -52,10 +52,10 @@
         z-index: 999;
         background: #fff;
         font-family: 'FVazir';
-        font-size: 17px;
+        font-size: 19px;
         box-shadow: 0 2px 13px rgba(0, 0, 0, .3);
         border-radius: 6px;
-        padding: 12px 20px 10px;
+        padding: 14px 22px 12px;
         bottom: 60px;
         right: 70px;
         cursor: pointer;

@@ -90,14 +90,16 @@ export default {
 		submitEmail() {
 			axios.post('/api/payment/link', {email: this.user_email})
 				.then(response => {
-					if (response.data.status == 'ok') {
-						window.location.href = response.data.data.link
-					} else {
-						// Do something
-					}
+					window.location.href = response.data.data.link
 				})
 				.catch(error => {
-					let messageText = Object.values(error.response.data.errors)[0][0]
+					let messageText = 'متأسفانه مشکلی رخ داد...!'
+					if (error.response.data.errors) {
+						messageText = Object.values(error.response.data.errors)[0][0]						
+					} else {
+						messageText = error.response.data.message
+					}
+					
 					messageBox(messageText, 'error')
 				})
 		}
