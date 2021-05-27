@@ -55,4 +55,25 @@ class PaymentController extends Controller
             ]
         ]);
     }
+
+    public function verify()
+    {
+        $transaction = Transaction::where('order_id', request()->order_id)
+            ->where('status', 0)
+            ->first();
+
+        if (! $transaction) {
+            return view('payment_message', ['title' => 'تراکنش یافت نشد!', 'message' => 'تراکنشی با کد دریافت‌شده وجود ندارد!']);
+        }
+
+        $response = $this->payment->verify();
+
+        if ($response && $response['status'] == 100) {
+            $transaction->update(['track_id' => $response['track_id'], 'status' => 1]);
+            // @TODO: Send the email
+            return view('payment_message', ['title' => 'خرید با موفقیت انجام شد!', 'message' => 'خرید با موفقیت انجام شد! کد رهگیری شما ' . $response['track_id'] . ' است.']);
+        }
+
+        return view('payment_message', ['title' => 'مشکلی در تأیید پرداخت شما رخ داد!', 'message' => 'نتوانستیم پرداخت شما را تأیید کنیم، شاید پرداخت را انجام نداده‌اید یا اینکه قبلاً از این پرداخت استفاده کرده‌اید. در صورتی که فکر می‌کنید مشکل از جانب ماست، با ما تماس بگیرید.']);
+    }
 }
