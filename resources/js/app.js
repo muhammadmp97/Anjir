@@ -1,6 +1,6 @@
 require('./bootstrap')
 window.Vue = require('vue')
-window.events = new Vue();
+window.events = new Vue()
 
 import VueProgressBar from 'vue-progressbar'
 import Book from './components/Book'
