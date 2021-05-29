@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\BookDownloadLink;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Services\Payment\PaymentInterface;
 use App\Models\Book;
 use App\Models\Transaction;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentController extends Controller
 {
@@ -70,8 +72,10 @@ class PaymentController extends Controller
 
         if ($response && $response['status'] == 100) {
             $transaction->update(['track_id' => $response['track_id'], 'status' => 1]);
-            // @TODO: Send the email
-            return view('payment_message', ['title' => 'خرید با موفقیت انجام شد!', 'message' => 'خرید با موفقیت انجام شد! کد رهگیری شما ' . $response['track_id'] . ' است.']);
+            
+            Mail::to($transaction->email)->send(new BookDownloadLink);
+
+            return view('payment_message', ['title' => 'خرید با موفقیت انجام شد!', 'message' => 'خرید با موفقیت انجام شد و لینک دانلود کتاب برای آدرس ایمیل واردشده ارسال گردید! کد رهگیری شما ' . $response['track_id'] . ' است.']);
         }
 
         return view('payment_message', ['title' => 'مشکلی در تأیید پرداخت شما رخ داد!', 'message' => 'نتوانستیم پرداخت شما را تأیید کنیم، شاید پرداخت را انجام نداده‌اید یا اینکه قبلاً از این پرداخت استفاده کرده‌اید. در صورتی که فکر می‌کنید مشکل از جانب ماست، با ما تماس بگیرید.']);
