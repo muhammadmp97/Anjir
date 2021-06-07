@@ -11,7 +11,7 @@
             <book></book>
             <message-box message="" type=""></message-box>
         </div>
-    </body>
 
-    <script src="js/app.js"></script>
+        <script src="js/app.js"></script>
+    </body>
 </html>
