@@ -29,8 +29,8 @@
 				</div>
 
 				<div class="col-lg-12">
-					<button @click="showBuyModal" class="b-button b-button-red fs-17 ml-10">{{ getPrice }}</button>
-					<button v-if="free_version_url" @click="downloadFreeVersion" class="b-button b-button-gray fs-17 ml-10">نسخه‌ی نمونه</button>
+					<button @click="showBuyModal" class="b-button b-button-red fs-17 float-left ml-10">{{ getPrice }}</button>
+					<button v-if="free_version_url" @click="downloadFreeVersion" class="b-button b-button-gray fs-17 float-left ml-10">نسخه‌ی نمونه</button>
 				</div>
 			</div>
 		</div>
@@ -42,7 +42,7 @@
 				</center>
 
 				<input v-model="user_email" type="text" class="email-input" placeholder="لطفا آدرس ایمیل خود را وارد کنید">
-				<button @click="submitEmail" :disabled="this.user_email.trim() == ''" class="b-button b-button-red fs-17">تأیید</button>
+				<button @click="submitEmail" :disabled="this.user_email.trim() == ''" class="b-button b-button-red fs-17 float-left">تأیید</button>
 			</div>
 		</modal>
 	</div>
@@ -142,7 +142,6 @@ export default {
 }
 
 .b-button {
-	float: left;
 	color: #fff;
 	font-family: 'FVazir';
 	font-weight: bold;
