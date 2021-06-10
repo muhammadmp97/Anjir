@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'administrator' => [
+        'username' => 'admin',
+        'password' => 'admin',
+    ],
     'services' => [
         'idpay' => [
             'token' => env('IDPAY_TOKEN'),

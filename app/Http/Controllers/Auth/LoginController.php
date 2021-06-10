@@ -11,4 +11,16 @@ class LoginController extends Controller
     {
         return view('login');
     }
+
+    public function login(Request $request)
+    {
+        $username = config('anjir.administrator.username');
+        $password = config('anjir.administrator.password');
+
+        if ($request->username == $username && $request->password == $password) {
+            session(['username' => $username]);
+        }
+
+        return back()->withErrors(['error' => 'نام کاربری یا کلمه عبور اشتباه است!']);
+    }
 }

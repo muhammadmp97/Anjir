@@ -18,6 +18,10 @@
                 <input name="password" type="password" placeholder="Password" class="d-block w-100" style="margin-bottom: 10px;">
                 <input type="submit" class="b-button b-button-red d-block w-100" value="ورود">
             </form>
+
+            @error('error')
+                <p class="vazir pb-0">{{ $message }}</p>
+            @enderror
         </div>
     </div>
 
