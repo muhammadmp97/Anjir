@@ -19,6 +19,7 @@ class LoginController extends Controller
 
         if ($request->username == $username && $request->password == $password) {
             session(['username' => $username]);
+            return redirect('/panel');
         }
 
         return back()->withErrors(['error' => 'نام کاربری یا کلمه عبور اشتباه است!']);
