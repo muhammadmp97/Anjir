@@ -61,6 +61,15 @@ a {
     text-decoration: none !important;
 }
 
+.w-25 {
+    width: 25%;
+}
+.w-50 {
+    width: 50%;
+}
+.w-75 {
+    width: 75%;
+}
 .w-100 {
     width: 100%;
 }
@@ -176,4 +185,12 @@ a {
     border-radius: 5px;
     text-align: center;
     padding: 8px 10px;
+}
+
+.form-input {
+    font-family: 'FVazir';
+    font-size: 15px;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    padding: 5px 10px;
 }
