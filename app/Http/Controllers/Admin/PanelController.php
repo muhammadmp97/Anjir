@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Book;
 
 class PanelController extends Controller
 {
@@ -14,6 +14,8 @@ class PanelController extends Controller
 
     public function show()
     {
-        return view('admin.panel');
+        $data = Book::getProperties();
+
+        return view('admin.panel', compact('data'));
     }
 }
