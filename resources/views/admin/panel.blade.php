@@ -17,8 +17,19 @@
                 <h2 class="mb-4 mt-0 bolder">تنظیمات</h2>
 
                 <h3 class="fs-19">ویرایش مشخصات کتاب</h3>
+
                 <form action="{{ url('/panel/book') }}" method="post" enctype="multipart/form-data">
                     @csrf @method('put')
+
+                    @if ($errors->any())
+                        <ul class="color-red">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        <br>
+                    @endif
+
                     <label for="bookTitle">عنوان کتاب:</label><br>
                     <input name="title" type="text" id="bookTitle" class="form-input w-75" value="{{ $data['title'] }}">
                     <br><br>

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BookUpdateRequest;
 use App\Models\Book;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
 class BookController extends Controller
@@ -14,10 +14,8 @@ class BookController extends Controller
         $this->middleware('is_admin');
     }
 
-    public function update(Request $request)
+    public function update(BookUpdateRequest $request)
     {
-        // TODO: Validation
-
         Cache::forget('anjir_book_info');
 
         Book::firstOrCreate(
