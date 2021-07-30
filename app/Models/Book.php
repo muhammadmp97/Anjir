@@ -9,7 +9,9 @@ class Book extends Model
 {
     use HasProperties;
 
+    protected $guarded = [];
     protected $table = 'book_properties';
+    public $timestamps = false;
 
     public static $defaults = [
         'title' => 'سلام دنیا!',
