@@ -18,12 +18,7 @@ class BookController extends Controller
     {
         Cache::forget('anjir_book_info');
 
-        Book::firstOrCreate(
-            ['property' => 'title'],
-            ['value' => $request->title]
-        );
-
-        $fields = ['author', 'description', 'version', 'price'];
+        $fields = ['title', 'author', 'description', 'version', 'price'];
         foreach ($fields as $field) {
             Book::firstOrCreate(
                 ['property' => $field],
