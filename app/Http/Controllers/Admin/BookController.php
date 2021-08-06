@@ -20,10 +20,7 @@ class BookController extends Controller
 
         $fields = ['title', 'author', 'description', 'version', 'price'];
         foreach ($fields as $field) {
-            Book::updateOrCreate(
-                ['property' => $field],
-                ['value' => $request->$field]
-            );
+            Book::updateProperty($field, $request->$field);
         }
 
         if ($request->hasFile('cover_photo')) {
@@ -31,10 +28,7 @@ class BookController extends Controller
                 ->storeAs('public', 'cover_photo.jpg');
 
             if ($uploadedFile) {
-                Book::updateOrCreate(
-                    ['property' => 'cover_photo'],
-                    ['value' => asset('storage/cover_photo.jpg')]
-                );
+                Book::updateProperty('cover_photo', asset('storage/cover_photo.jpg'));
             }
         }
 

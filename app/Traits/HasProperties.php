@@ -27,4 +27,12 @@ trait HasProperties
 
         return $result;
     }
+
+    public static function updateProperty($property, $value)
+    {
+        static::updateOrCreate(
+            ['property' => $property],
+            ['value' => $value]
+        );
+    }
 }
