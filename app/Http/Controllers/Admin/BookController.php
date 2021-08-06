@@ -27,7 +27,15 @@ class BookController extends Controller
         }
 
         if ($request->hasFile('cover_photo')) {
-            // TODO: upload the photo
+            $uploadedFile = $request->file('cover_photo')
+                ->storeAs('public', 'cover_photo.jpg');
+
+            if ($uploadedFile) {
+                Book::updateOrCreate(
+                    ['property' => 'cover_photo'],
+                    ['value' => asset('storage/cover_photo.jpg')]
+                );
+            }
         }
 
         if ($request->hasFile('book_file')) {

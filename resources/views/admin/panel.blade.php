@@ -12,7 +12,7 @@
     <div class="book-box vazir">
         <div class="book-loaded-content-parent" style="">
             <div class="col-lg-4 text-align-center">
-                <img src="/images/book_cover.jpg" class="cover-photo"></div>
+                <img src="{{ asset($data['cover_photo']) }}" class="cover-photo"></div>
             <div class="col-lg-8">
                 <h2 class="mb-4 mt-0 bolder">تنظیمات</h2>
 
