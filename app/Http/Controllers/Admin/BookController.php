@@ -20,7 +20,7 @@ class BookController extends Controller
 
         $fields = ['title', 'author', 'description', 'version', 'price'];
         foreach ($fields as $field) {
-            Book::firstOrCreate(
+            Book::updateOrCreate(
                 ['property' => $field],
                 ['value' => $request->$field]
             );
