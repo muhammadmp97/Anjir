@@ -14,7 +14,7 @@ trait HasProperties
 
         $dbValue = optional($properties->firstWhere('property', $property))->value;
 
-        return $dbValue ?: static::$defaults[$property];
+        return ! is_null($dbValue) ? $dbValue : static::$defaults[$property];
     }
 
     public static function getProperties()

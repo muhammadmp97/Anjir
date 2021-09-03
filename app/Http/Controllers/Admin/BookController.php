@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BookUpdateRequest;
 use App\Models\Book;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 
 class BookController extends Controller
 {
@@ -33,7 +34,14 @@ class BookController extends Controller
         }
 
         if ($request->hasFile('book_file')) {
-            // TODO: upload the file
+            $bookFileName = Str::random(12) . '.pdf';
+
+            $bookFile = $request->file('book_file')
+                ->storeAs('public', $bookFileName);
+
+            if ($bookFile) {
+                Book::updateProperty('book_file', $bookFileName);
+            }
         }
 
         // TODO: Demo version
