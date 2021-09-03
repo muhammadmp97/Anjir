@@ -21,6 +21,7 @@ class PaymentController extends Controller
 
     public function createLink(Request $request)
     {
+        // TODO Don't do this for free books
         $request->validate([
             'email' => ['required', 'email']
         ], [
